@@ -35,12 +35,23 @@ for i in range(0, 4):
         valor_actual_roda_direita = rightWheelSensor.getValue()
         robot.step(16)
     # Virar a direita.
-    leftWheel.setPosition(1000)
-    rightWheel.setPosition(-1000)
-    # Malha aberta - temporizador para virar a direita
-    robot.step(488)
+  # Virar a direita - MALHA FECHADA com encoder
+angulo_viragem = 6.14
+valor_inicial_esq = leftWheelSensor.getValue()
+
+leftWheel.setPosition(float('inf'))
+rightWheel.setPosition(float('inf'))
+leftWheel.setVelocity(2.0)
+rightWheel.setVelocity(-2.0)
+
+while robot.step(32) != -1:
+    if abs(leftWheelSensor.getValue() - valor_inicial_esq) >= angulo_viragem:
+        break
+
+leftWheel.setVelocity(0)
+rightWheel.setVelocity(0)
+robot.step(32)
 
 # Stop the robot when path is completed, as the robot performance
 # is only computed when the robot has stopped.
-leftWheel.setVelocity(0)
-rightWheel.setVelocity(0)
+
