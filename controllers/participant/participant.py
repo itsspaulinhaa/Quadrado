@@ -1,4 +1,4 @@
-"""Sample Webots controller for the square path benchmark."""
+"""Sample Webots controller for the square path benchmark. """
 
 from controller import Robot
 
