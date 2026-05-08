@@ -1,4 +1,4 @@
-"""Sample Webots controller for the square path benchmark. """
+"""Sample Webots controller for the square path benchmark."""
 
 from controller import Robot
 
@@ -35,7 +35,7 @@ for i in range(0, 4):
         valor_actual_roda_direita = rightWheelSensor.getValue()
         robot.step(16)
     # Virar a direita.
-  # Virar a direita - MALHA FECHADA com encoder
+  # Virar a direita - MALHA FECHADA 
 angulo_viragem = 6.14
 valor_inicial_esq = leftWheelSensor.getValue()
 
